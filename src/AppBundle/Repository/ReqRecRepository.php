@@ -2,7 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\EntityRepository;
+
 
 /**
  * ReqRecRepository
@@ -41,8 +43,10 @@ class ReqRecRepository extends EntityRepository
                     $qb->andwhere("r.id = $value ");
                     break;
                 case 'last_days' :
+                    $date =  (new \DateTime("-{$value} day"))->format('Y-m-d');
                     $qb->andwhere("r.created >= :now")
-                        ->setParameter('now', "(CURRENT_TIMESTAMP() - INTERVAL $value DAY)");
+                        ->setParameter('now', $date);
+
             }
 
 
