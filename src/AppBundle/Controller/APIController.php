@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
+//use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
@@ -21,6 +22,29 @@ class APIController extends FOSRestController
      * ● last_days - count of days. filter by period: now-last_days to now;
      * ● search - string value. return records that contains ‘search’ string in headers or body.
      *
+     * @ApiDoc(
+     *  description="Returns a collection of Object",
+     *  requirements={
+     *      {
+     *          "id"="integer",
+     *          "ip"="string",
+     *          "route"="integer",
+     *          "method"="string",
+     *          "last_days"="integer",
+     *          "search"="string"
+     *      }
+     *  },
+     *  parameters={
+     *      "id"="integer",
+     *          "ip"="string",
+     *          "route"="integer",
+     *          "method"="string",
+     *          "last_days"="integer",
+     *          "search"="string"}
+     *
+     * )
+     *
+     *
      * @Rest\Get("getRequest")
      * @param Request $r
      * @return View
@@ -37,8 +61,16 @@ class APIController extends FOSRestController
     }
 
     /**
+     *
+     * @ApiDoc(
+     *  description="Seve request"
+     * )
+     *
+     *
+     *
+     *
      * @Rest\Route("storeRequest/first", name="first")
-     * @Rest\Route("/{all}", requirements={"all"=".*"})
+     * @Rest\Route("/{all}", requirements={"all"="!(api|getRequest).*"})
      * @param Request $r
      * @return View
      */
