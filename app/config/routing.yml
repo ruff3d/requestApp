@@ -2,6 +2,7 @@ app:
     resource: '@AppBundle/Controller/APIController.php'
     type: rest
     defaults: { _format: 'json' }
+    prefix:   /
 
 close:
     resource: '@AppBundle/Controller/DefaultController.php'
@@ -10,3 +11,12 @@ close:
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
+
+url_redirect:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: '/storeRequest/first'
+        permanent: true
+
+

@@ -73,10 +73,10 @@ nelmio_api_doc:
         request_format:
             method: accept_header
             formats:
-#                json: application/json
+                json: application/json
         body_format:
             formats:
-#                - json
+                - json
 
 # Nelmio CORS Configuration
 nelmio_cors:
@@ -95,7 +95,7 @@ fos_rest:
     body_listener: true
     format_listener:
         rules:
-            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
+#            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
     param_fetcher_listener: true
     routing_loader:
             include_format: false
