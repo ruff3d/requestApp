@@ -12,7 +12,7 @@ Install:
 
 API-Documentation
 
-http://127.0.0.1:8000/api/doc   (sendbox)
+http://127.0.0.1:8000/api/doc   (sandbox)
 
 http://127.0.0.1:8000/storeRequest/first
 
