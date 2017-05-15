@@ -54,7 +54,6 @@ class APIController extends FOSRestController
         Seve request
      *
      * @Rest\Route("storeRequest/first", name="first")
-     * @Rest\Route("/{all}", requirements={"all"="!(api|getRequest).*"})
      * @param Request $r
      * @return View
      */
