@@ -27,4 +27,10 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertContains('true', $this->client->getResponse()->getContent());
     }
+
+    public function testAnother(){
+        $this->client->request('GET', '/storeRequest/second');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->assertContains('true', $this->client->getResponse()->getContent());
+    }
 }
