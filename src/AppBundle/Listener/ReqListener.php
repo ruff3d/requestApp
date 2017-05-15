@@ -18,7 +18,7 @@ class ReqListener
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         if ($event->getException() instanceof NotFoundHttpException) {
-            $response = new RedirectResponse('storeRequest/first');
+            $response = new RedirectResponse('storeRequest/first', 301);
             $event->setResponse($response);
         }
     }
