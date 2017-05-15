@@ -51,7 +51,7 @@ class APIController extends FOSRestController
     }
 
     /**
-        Seve request
+     * Seve request
      *
      * @Rest\Route("storeRequest/first", name="first")
      * @param Request $r
@@ -91,7 +91,8 @@ class APIController extends FOSRestController
             'last_days',
             'search'
         ];
-        return empty(array_diff($keys, $availableFilters));
+        $status = !empty($keys) && empty(array_diff($keys, $availableFilters));
+        return $status;
     }
 
 
