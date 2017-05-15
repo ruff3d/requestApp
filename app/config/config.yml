@@ -68,7 +68,15 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-nelmio_api_doc: ~
+nelmio_api_doc:
+    sandbox:
+        request_format:
+            method: accept_header
+            formats:
+#                json: application/json
+        body_format:
+            formats:
+#                - json
 
 # Nelmio CORS Configuration
 nelmio_cors:
@@ -81,6 +89,7 @@ nelmio_cors:
         hosts: []
         origin_regex: false
 
+
 # FOSRest Configuration
 fos_rest:
     body_listener: true
@@ -88,6 +97,8 @@ fos_rest:
         rules:
             - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
     param_fetcher_listener: true
+    routing_loader:
+            include_format: false
     view:
         view_response_listener: 'force'
         formats:

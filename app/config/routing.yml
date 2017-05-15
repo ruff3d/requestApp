@@ -1,6 +1,7 @@
 app:
     resource: '@AppBundle/Controller/APIController.php'
     type: rest
+    defaults: { _format: 'json' }
 
 close:
     resource: '@AppBundle/Controller/DefaultController.php'

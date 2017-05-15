@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
-//use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
@@ -24,24 +24,14 @@ class APIController extends FOSRestController
      *
      * @ApiDoc(
      *  description="Returns a collection of Object",
-     *  requirements={
-     *      {
-     *          "id"="integer",
-     *          "ip"="string",
-     *          "route"="integer",
-     *          "method"="string",
-     *          "last_days"="integer",
-     *          "search"="string"
-     *      }
-     *  },
-     *  parameters={
-     *      "id"="integer",
-     *          "ip"="string",
-     *          "route"="integer",
-     *          "method"="string",
-     *          "last_days"="integer",
-     *          "search"="string"}
-     *
+     *     parameters={
+     *      {"name"="id", "dataType"="string", "required"=false,"description"="request id"},
+     *      {"name"="route", "dataType"="string", "required"=false,"description"="route url"},
+     *      {"name"="method", "dataType"="string", "required"=false,"description"="request method"},
+     *      {"name"="ip", "dataType"="string", "required"=false,"description"="client ip"},
+     *      {"name"="last_days", "dataType"="string","required"=false, "description"="period"},
+     *      {"name"="search", "dataType"="string", "required"=false,"description"="find entries"}
+     *  }
      * )
      *
      *
@@ -61,13 +51,7 @@ class APIController extends FOSRestController
     }
 
     /**
-     *
-     * @ApiDoc(
-     *  description="Seve request"
-     * )
-     *
-     *
-     *
+        Seve request
      *
      * @Rest\Route("storeRequest/first", name="first")
      * @Rest\Route("/{all}", requirements={"all"="!(api|getRequest).*"})
